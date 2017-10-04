@@ -1,5 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p><strike>{{ crossed_off_movie }}</strike>  has been crossed off your Watchlist.</p>
+
+<h2>Signup</h2>
+
+<form action="/welcome" method="post">
+    <p>
+    <label>
+        Username:
+        <input type="text" name="username"/>
+    </label>
+    </p>
+    <p>
+    <label>
+        Password:
+        <input type="password" name="password"/>
+    </label>
+    </p>
+    <label>
+        Verify Password:
+        <input type="password" name="verified_password"/>
+    </label>
+    <p>
+    {% if error %}
+    <p class='error'>{{ error }}</p>
+    {% endif %}
+    <label>
+        Email (optional):
+        <input type="text" name="email"/>
+    </label>
+    {% if error %}
+    <p class='error'>{{ error }}</p>
+    {% endif %}
+    </p>
+    <input type="submit" value="Submit"/>
+</form>
+
 {% endblock %}
+
